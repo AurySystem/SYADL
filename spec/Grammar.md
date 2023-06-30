@@ -1,12 +1,13 @@
 # Grammar and compenents
 
 Indents must be uniform although a file. 
-```
+``` yaml
 nest1:
   nest2:
-    nest3:
+    nest3: none
+  
   stillnested: "g"
-   invalidnest:
+   invalidnest: "badline"
 
 ```
 
