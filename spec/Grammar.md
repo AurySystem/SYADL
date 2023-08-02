@@ -93,8 +93,8 @@ A reference is an encapsulated identifier that is replaced with the field matchi
 
 ## Operations (+ - * / %)
 operations combine values with other set values or refrences, operations run left to right without order of operations
-+ adds a string or number together
-- subtracts a number or attempts to remove part of a string
+"+" adds a string or number together
+"-" subtracts a number or attempts to remove part of a string
 
 ## Booleans (True/False)
 True/ False unencapsulated
