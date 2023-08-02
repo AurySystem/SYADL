@@ -35,18 +35,19 @@ Anything on the left side of the seperator ":" that isn't the identifier is a "h
 ```
 As you can see the properties are an inline dictionary/assosative array, and an optional global id so this can be target by other nodes so it's properties can be inherited, and an copy key to indecate to the parser where this should copy in properties this doesn't overwrite from.
 
-Propertyless nodes (also know as headerless nodes) parse as direct key value pairs such as:
+Propertyless nodes (also know as headerless nodes) are direct key value pairs such as:
 ``` yaml
 key: "value"
 ```
 ``` json
 {"key":"value"}
 ```
+Most "Nodes" are headerless, as every value is a headerless node inserted directly into the tree of another node
 
 ## Child inheritance <xyz>
   
 nodes (headered or headerless) can inherit children from other nodes.
-to make building from 
+to make building from templates and such easier. Uses control Characters and global keys on identifiers
 ``` yaml
 ^Dict: 
   key: "here"
@@ -62,7 +63,7 @@ to make building from
   - 5
   - 6
 
-<list>why:
+<List>why:
   - 3
 ```
 ``` json
@@ -81,17 +82,25 @@ to make building from
 }
 ```
 
-Dictionaries { why: "here" }
+## Dictionaries { why: "here" }
+A dictionary is a series of identifier value pairs deliminated by whitespace either ecapsulated by ```{}``` or tab indented whitespace.
+
+## Lists ["so" "many" "things"]
 
 
-Lists ["so" "many" "things"]
+## References ${otherfield}
+A reference is an encapsulated identifier that is replaced with the field matching the identitfier, refrences 
 
-References ${otherfield}
+## Operations (+ - * / %)
+operations combine values with other set values or refrences, operations run left to right without order of operations
++ adds a string or number together
+- subtracts a number or attempts to remove part of a string
 
-Booleans (True/False)
+## Booleans (True/False)
+True/ False unencapsulated
 
-Numbers (Integers, Floating point numbers)
+## Numbers (Integers, Floating point numbers)
 
-Strings ("aaa")
 
-Operations (+ - * / %)
+## Strings ("aaa")
+always encapsulated by quotation marks
